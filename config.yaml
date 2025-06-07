@@ -1,9 +1,20 @@
-data_dir: "data/processed"
-train_dir: "data/train"
-test_dir: "data/test"
-model_path: "models/jewellery_model.pth"
-image_size: 224
-batch_size: 32
-num_epochs: 10
-learning_rate: 0.001
-classes: ["ring", "bracelet", "necklace", "earrings"]
+# config.yaml
+
+image_size: [224, 224]
+
+data_paths:
+  raw: data/raw
+  output: data
+
+split_ratio:
+  train: 0.7
+  val: 0.15
+  test: 0.15
+
+valid_extensions: [".jpg", ".jpeg", ".png"]
+
+augmentation:
+  train:
+    horizontal_flip: true
+    rotation: 15     # degrees
+    color_jitter: true
